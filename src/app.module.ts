@@ -5,6 +5,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -17,7 +18,8 @@ import { MongooseModule } from '@nestjs/mongoose';
         NEST_PORT: Joi.number().default(3001), // NestJS의 포트를 지정함 Default는 3001
       }),
     }),
-  MongooseModule.forRoot(process.env.MONGODB_CONNECTION), // MongoDB에 접속
+  MongooseModule.forRoot(process.env.MONGODB_CONNECTION),
+  UsersModule, // MongoDB에 접속
   ],
   controllers: [AppController],
   providers: [AppService],
