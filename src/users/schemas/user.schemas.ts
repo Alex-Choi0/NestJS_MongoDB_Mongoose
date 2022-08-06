@@ -6,6 +6,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
   timestamps: true, // document 작성시 시간 기록
 })
 export class Users {
+
   @Prop({ unique: true }) // 유저 id
   id: string;
 
